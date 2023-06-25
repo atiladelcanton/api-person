@@ -1,0 +1,12 @@
+package com.example.springboot.models;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "products")
+public class ProductModel implements Serializable {
+
+}
