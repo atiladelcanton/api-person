@@ -1,13 +1,13 @@
 spring:
   datasource:
       driverClassName: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://www.zensolutions.com.br:3306/zensolutions_java?useTimezone=true&serverTimezone=UTC
-      username: zensolutions_java
-      password: vMgSKoz46X
+      url: jdbc:mysql://localhost:3306/java?useTimezone=true&serverTimezone=UTC
+      username: idioma_root
+      password: N5WTRKHzuhwDtKM
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL57Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
       show-sql: false

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.zensolutions.exceptions.ExceptionResponse;
 import br.com.zensolutions.exceptions.ResourceNotFoundException;
+import br.com.zensolutions.exceptions.RequiredObjectIsNullException;
 
 @ControllerAdvice // Sempre que precisar concentrar algum tratamento q seria espalhado em varios
 // controllers
@@ -26,7 +27,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 
 	}
-	
+
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public final ResponseEntity<ExceptionResponse> handleNotFoundException(Exception exception, WebRequest request) {
 
@@ -34,6 +35,16 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 				request.getDescription(false));
 
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+
+	}
+
+	@ExceptionHandler(RequiredObjectIsNullException.class)
+	public final ResponseEntity<ExceptionResponse> handleBadRequestException(Exception exception, WebRequest request) {
+
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), exception.getMessage(),
+				request.getDescription(false));
+
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 
 	}
 }

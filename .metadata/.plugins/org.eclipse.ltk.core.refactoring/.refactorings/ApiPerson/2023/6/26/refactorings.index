@@ -4,3 +4,14 @@
 1687692917475	Rename resource 'application.properties'
 1687709486342	Delete element
 1687709730190	Rename type 'UnsupportedMathOperationException'
+1687711544231	Copy compilation unit
+1687711554896	Rename type 'Person'
+1687711619226	Move compilation unit
+1687714583596	Copy package
+1687714599586	Rename type 'PersonVO'
+1687783838610	Rename resource 'V1_Create_Table_Person.sql'
+1687783851966	Rename resource 'V1_Create_Table_Person.sql1'
+1687786208955	Rename resource 'V1_Create_Table_Person.sql'
+1687805530278	Move compilation unit
+1687821479729	Copy compilation unit
+1687821697454	Rename type 'ResourceObjectIsNullException'
