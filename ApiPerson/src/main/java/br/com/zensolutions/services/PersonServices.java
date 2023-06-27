@@ -26,8 +26,6 @@ public class PersonServices {
 	@Autowired
 	PersonRepository repository;
 
-	@Autowired
-	PersonMapper mapper;
 
 	public List<PersonVO> findAll() {
 		var persons = DozerMapper.parseListObjects(repository.findAll(), PersonVO.class);
@@ -58,13 +56,7 @@ public class PersonServices {
 		return vo;
 	}
 
-	public PersonVOV2 createV2(PersonVOV2 person) {
-		logger.info("Crating one person V2");
-		var entity = mapper.convertVoToEntity(person);
-		var vo = mapper.convertEntityToVo(repository.save(entity));
-		
-		return vo;
-	}
+	
 
 	public PersonVO update(PersonVO person) {
 		if(person == null) throw new RequiredObjectIsNullException();
