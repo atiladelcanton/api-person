@@ -38,12 +38,12 @@ public class AuthServices {
             if (user != null) {
                 tokenResponse = tokenProvider.createAccessToken(username, user.getRoles());
             } else {
-                throw new UsernameNotFoundException("Access not finded");
+                throw new UsernameNotFoundException("User or Senha not finded");
             }
 
             return ResponseEntity.ok(tokenResponse);
         } catch (Exception e) {
-            throw new BadCredentialsException("Access not finded");
+            throw new BadCredentialsException("Failed to Sign: "+e.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ public class AuthServices {
         if (user != null) {
             tokenResponse = tokenProvider.refreshToken(refreshToken);
         } else {
-            throw new UsernameNotFoundException("Access not finded");
+            throw new UsernameNotFoundException("Filed refresh token");
         }
 
         return ResponseEntity.ok(tokenResponse);

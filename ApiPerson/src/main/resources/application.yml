@@ -11,7 +11,7 @@ spring:
   datasource:
       driverClassName: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/java?useTimezone=true&serverTimezone=UTC
-      username: idioma_root
+      username: root
       password: N5WTRKHzuhwDtKM
   jpa:
     hibernate:
