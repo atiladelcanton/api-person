@@ -1,7 +1,7 @@
 cors:
   originPatterns: http://localhost:3000,http://localhost:8080
 file:
-  upload-dir: /projects/java/ApiPerson/uploads
+  upload-dir: /home/runner/work/api-person/uploads
 security:
   jwt:
     token:
