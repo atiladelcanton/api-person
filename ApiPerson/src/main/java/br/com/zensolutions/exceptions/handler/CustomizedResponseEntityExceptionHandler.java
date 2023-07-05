@@ -11,8 +11,9 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.zensolutions.exceptions.ExceptionResponse;
-import br.com.zensolutions.exceptions.ResourceNotFoundException;
+import br.com.zensolutions.exceptions.InvalidJwtAuthenticationException;
 import br.com.zensolutions.exceptions.RequiredObjectIsNullException;
+import br.com.zensolutions.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice // Sempre que precisar concentrar algum tratamento q seria espalhado em varios
 // controllers
@@ -46,5 +47,15 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 
+	}
+
+	@ExceptionHandler(InvalidJwtAuthenticationException.class)
+	public final ResponseEntity<ExceptionResponse> handleInvalidJwtAuthenticationException(Exception exception, WebRequest request) {
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), exception.getMessage(),
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.UNAUTHORIZED);
+		
 	}
 }

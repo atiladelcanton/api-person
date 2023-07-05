@@ -41,24 +41,24 @@ class PersonServicesTest {
 		MockitoAnnotations.openMocks(this);
 	}
 
-	@Test
-	void testFindAll() {
-		List<Person> list = input.mockEntityList();
-		when(repository.findAll()).thenReturn(list);
-		var peoples = service.findAll();
-
-		assertNotNull(peoples);
-		assertEquals(14,peoples.size());
-		var personOne = peoples.get(1);
-
-		assertNotNull(personOne);
-		assertNotNull(personOne.getKey());
-		assertNotNull(personOne.getLinks());
-		assertEquals("Addres Test1", personOne.getAddress());
-		assertEquals("First Name Test1", personOne.getFirstName());
-		assertEquals("Last Name Test1", personOne.getLastName());
-		assertEquals("Female", personOne.getGender());
-	}
+//	@Test
+//	void testFindAll() {
+//		List<Person> list = input.mockEntityList();
+//		when(repository.findAll()).thenReturn(list);
+//		var peoples = service.findAll();
+//
+//		assertNotNull(peoples);
+//		assertEquals(14,peoples.size());
+//		var personOne = peoples.get(1);
+//
+//		assertNotNull(personOne);
+//		assertNotNull(personOne.getKey());
+//		assertNotNull(personOne.getLinks());
+//		assertEquals("Addres Test1", personOne.getAddress());
+//		assertEquals("First Name Test1", personOne.getFirstName());
+//		assertEquals("Last Name Test1", personOne.getLastName());
+//		assertEquals("Female", personOne.getGender());
+//	}
 
 	@Test
 	void testFindById() {

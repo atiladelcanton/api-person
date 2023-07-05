@@ -1,7 +1,13 @@
 cors:
   originPatterns: http://localhost:3000,http://localhost:8080
+  
 server:
   port: 8888
+security:
+  jwt:
+    token:
+      secret-key: 53Cr37hju
+      expire-lenght: 3600000
 spring:
   datasource:
       driverClassName: com.mysql.cj.jdbc.Driver
@@ -12,6 +18,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
       show-sql: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
 springdoc:
   pathsToMatch: /api/**/**
   swagger-ui:
