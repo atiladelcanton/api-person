@@ -1,5 +1,0 @@
-package be.com.zensolutions.repositories;
-
-public interface PersonRepository {
-
-}
